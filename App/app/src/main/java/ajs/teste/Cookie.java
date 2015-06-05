@@ -13,7 +13,7 @@ public class Cookie extends GameObject{
     //private GameControl gameControl;
     private Bitmap image;
     private Matrix position;
-    private float angle, r;
+    private float currentAngle, angle, r;
     private int count;
 
 
@@ -36,9 +36,9 @@ public class Cookie extends GameObject{
     public boolean update(){
         //Retorna true se algum cookie passou
 
-        this.rotateImage(angle);
+        this.rotateImage(currentAngle);
 
-        angle += degree15;
+        currentAngle += angle;
         x += dx;
         y += dy;
 
@@ -76,7 +76,7 @@ public class Cookie extends GameObject{
 
         //if(rand.nextInt() % 2 == 0) dxa *= -1;
 
-        angle = degree15 * (1 + rand.nextInt() % 3);
+        angle = degree15 * (1 + rand.nextInt() % 5);
 
         setRaio();
 
@@ -87,7 +87,7 @@ public class Cookie extends GameObject{
         r = width / 2f;
     }
 
-    public boolean collided(float x, float y){
+    public boolean collided(double x, double y){
        // double tmp = (x - getCenterX()) * (x - getCenterX()) + (y - getCenterY()) * (y - getCenterY());
         //System.out.println("Temp => " + tmp + "  Raio ^ 2: " + r * r + "   x: " + x + " " + this.x + "  y: " + y + " " + this.y);
         if(x >= this.x && x <= this.x + width && y >= this.y && y <= this.y + height){

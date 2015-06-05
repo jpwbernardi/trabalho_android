@@ -67,7 +67,7 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback{
         scaleFactorX = getWidth()/(float)WIDTH;
         scaleFactorY = getHeight()/(float)HEIGHT;
 
-        gameControl = new GameControl();
+        gameControl = new GameControl(BitmapFactory.decodeResource(getResources(), R.drawable.pote));
         playing = true;
 
         //Definindo imagens
@@ -86,7 +86,7 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback{
     public boolean onTouchEvent(MotionEvent event){
         if(event.getAction() == MotionEvent.ACTION_DOWN){
             for(int i = qtdCookie; playing && i >= 0; i--)
-                if(cookie[i].collided(event.getX()/scaleFactorX, event.getY()/scaleFactorY)){
+                if(cookie[i].collided(event.getRawX()/scaleFactorX, event.getRawY()/scaleFactorY)){
                     gameControl.addScore();
                     break;
                 }
