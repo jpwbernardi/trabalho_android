@@ -151,7 +151,7 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback{
     }
 
     private Cookie newCookie(){
-        return new Cookie(BitmapFactory.decodeResource(getResources(), R.drawable.cookie));
+        return new Cookie(BitmapFactory.decodeResource(getResources(), R.drawable.cookie2));
     }
 
     public void fimdejogo(){
