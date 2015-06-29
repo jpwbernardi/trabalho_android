@@ -10,7 +10,6 @@ public class Cookie extends GameObject{
 
     public final int COUNTMAX = 10;
     public final float degree15 = -0.39269908169872415480783042290994f * 3;
-    //private GameControl gameControl;
     private Bitmap image;
     private Matrix position;
     private float currentAngle, angle, r;
@@ -45,7 +44,7 @@ public class Cookie extends GameObject{
         if(x > GamePanel.WIDTH) x = 0;
         else if(x + this.width < 0) x = GamePanel.WIDTH;
 
-        //Sfó perde vida quando cookie chega no chão
+        //So perde vida quando cookie chega no chao
         if(y > GamePanel.HEIGHT){
             newPos();
             return true;
@@ -59,7 +58,7 @@ public class Cookie extends GameObject{
     }
 
     public void newPos(){
-        count++; //Quantas vezes foi chamada a função. Quanto mais vezes foi chamada, mais "dificil" é o cookie
+        count++; //Quantas vezes foi chamada a funcao. Quanto mais vezes foi chamada, mais "dificil" e o cookie
         Random rand = new Random();
 
         this.x = 100 + rand.nextInt(GamePanel.WIDTH - this.width - 100); //podem ser "spawnadas no intervalo [100, WIDTH - 100 - this.width]
@@ -72,7 +71,7 @@ public class Cookie extends GameObject{
         if(dx < 0) dx--;
         else dx++;
         dy = 5 + rand.nextInt(1 + count);
-        System.out.println("dx: " + dx + " dy: " + dy);
+        //System.out.println("dx: " + dx + " dy: " + dy);
 
         //if(rand.nextInt() % 2 == 0) dxa *= -1;
 
@@ -87,7 +86,7 @@ public class Cookie extends GameObject{
         r = width / 2f;
     }
 
-    public boolean collided(double x, double y){
+    public boolean collided(float x, float y){
        // double tmp = (x - getCenterX()) * (x - getCenterX()) + (y - getCenterY()) * (y - getCenterY());
         //System.out.println("Temp => " + tmp + "  Raio ^ 2: " + r * r + "   x: " + x + " " + this.x + "  y: " + y + " " + this.y);
         if(x >= this.x && x <= this.x + width && y >= this.y && y <= this.y + height){

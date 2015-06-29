@@ -14,8 +14,7 @@ public class GameControl {
 
     public GameControl(Bitmap bowl){
         score = 0;
-        maxScore = 0; //Load do arquivo... Como??
-        life = 5;
+        life = 10;
         this.bowl = bowl;
     }
 
@@ -26,6 +25,18 @@ public class GameControl {
 
     public void resetScore(){
         score = 0;
+    }
+
+    public void resetVida(){
+        life = 10;
+    }
+
+    public int getScore(){
+        return score;
+    }
+
+    public int getLife(){
+        return life;
     }
 
     public boolean loseLife(){

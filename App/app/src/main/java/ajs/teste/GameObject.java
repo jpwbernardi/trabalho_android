@@ -32,7 +32,7 @@ public abstract class GameObject {
         return width;
     }
 
-    //Vamos  tirar isso, né?
+    //Vamos  tirar isso, ne?
     public Rect getRectange(){
         return new Rect((int)x,(int)y,(int) (x + width), (int)(y + height));
     }
